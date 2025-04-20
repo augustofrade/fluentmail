@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMail", "FluentMail\FluentMail.csproj", "{55476677-E893-4032-B65F-CEB48EA8A798}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FE123EC0-24C6-493F-90F0-3218DA0487D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FA12CEBE-512D-4A05-9F15-EDD6C5076144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMail.Tests", "FluentMail.Tests\FluentMail.Tests.csproj", "{0F21A84A-8086-4F1D-A29D-43908A96B4EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55476677-E893-4032-B65F-CEB48EA8A798} = {FE123EC0-24C6-493F-90F0-3218DA0487D0}
+		{0F21A84A-8086-4F1D-A29D-43908A96B4EA} = {FA12CEBE-512D-4A05-9F15-EDD6C5076144}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55476677-E893-4032-B65F-CEB48EA8A798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55476677-E893-4032-B65F-CEB48EA8A798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55476677-E893-4032-B65F-CEB48EA8A798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55476677-E893-4032-B65F-CEB48EA8A798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F21A84A-8086-4F1D-A29D-43908A96B4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F21A84A-8086-4F1D-A29D-43908A96B4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F21A84A-8086-4F1D-A29D-43908A96B4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F21A84A-8086-4F1D-A29D-43908A96B4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
