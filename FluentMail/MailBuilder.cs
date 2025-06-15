@@ -9,7 +9,7 @@ public sealed class MailBuilder
     private MailAddress _sender;
     private readonly List<MailAddress> _recipients = [];
     private readonly List<MailAddress> _ccs = [];
-    private readonly BodyBuilder _bodyBuilder = new BodyBuilder();
+    public BodyBuilder BodyBuilder { get; } = new BodyBuilder();
 
     public MailBuilder() { }
     
@@ -56,15 +56,10 @@ public sealed class MailBuilder
 
     public MailBuilder WithBody(Action<BodyBuilder> action)
     {
-        action(_bodyBuilder);
+        action(BodyBuilder);
         return this;
     }
 
-    public BodyBuilder BodyBuilder()
-    {
-        return _bodyBuilder;
-    }
-    
     public MailScheme Build()
     {
         if (_sender == null)
@@ -78,7 +73,7 @@ public sealed class MailBuilder
             Recipients = _recipients,
             Ccs = _ccs,
             Subject = _subject,
-            Body = _bodyBuilder.Build()
+            Body = BodyBuilder.Build()
         };
     }
 }

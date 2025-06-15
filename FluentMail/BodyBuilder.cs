@@ -32,18 +32,18 @@ public class BodyBuilder
         if (_content == string.Empty && _parts.Count > 0)
         {
             throw new InvalidOperationException("Body doesn't have any content to replace with body parts");
-        }        
+        }
+
         var stringBuilder = new StringBuilder(_content);
         foreach (var bodyPart in _parts)
         {
-            stringBuilder.Replace(bodyPart.Key, bodyPart.Value);
+            stringBuilder.Replace("{" + bodyPart.Key + "}", bodyPart.Value);
         }
 
         return new MailBody
         {
             IsHtml = _isHtml,
             Content = stringBuilder.ToString(),
-            
         };
     }
 }
