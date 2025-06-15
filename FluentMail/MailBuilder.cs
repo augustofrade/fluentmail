@@ -5,13 +5,14 @@ namespace FluentMail;
 
 public sealed class MailBuilder
 {
-    private MailAddress? _sender;
+    private string _subject = string.Empty;
+    private MailAddress _sender;
     private readonly List<MailAddress> _recipients = [];
     private readonly List<MailAddress> _ccs = [];
     private readonly BodyBuilder _bodyBuilder = new BodyBuilder();
 
     public MailBuilder() { }
-
+    
     public MailBuilder(string senderName, string senderAddress)
     {
         _sender = new MailAddress(senderAddress, senderName);
@@ -47,10 +48,21 @@ public sealed class MailBuilder
         return this;
     }
 
+    public MailBuilder WithSubject(string subject)
+    {
+        _subject = subject;
+        return this;
+    }
+
     public MailBuilder WithBody(Action<BodyBuilder> action)
     {
         action(_bodyBuilder);
         return this;
+    }
+
+    public BodyBuilder BodyBuilder()
+    {
+        return _bodyBuilder;
     }
     
     public MailScheme Build()
@@ -65,6 +77,8 @@ public sealed class MailBuilder
             Sender = _sender,
             Recipients = _recipients,
             Ccs = _ccs,
+            Subject = _subject,
+            Body = _bodyBuilder.Build()
         };
     }
 }
