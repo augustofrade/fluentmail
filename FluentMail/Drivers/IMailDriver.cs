@@ -5,5 +5,5 @@ namespace FluentMail.Drivers;
 public interface IMailDriver<in T> where T : MailDriverOptions
 {
     Task Configure(T options);
-    Task<bool> SendAsync(MailScheme mailScheme);
+    Task<MailResult> SendAsync(MailScheme mailScheme);
 }

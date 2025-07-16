@@ -15,8 +15,7 @@ public class SmtpDriver : IMailDriver<SmtpOptions>
         _options = options;
         return Task.CompletedTask;
     }
-
-    public async Task<bool> SendAsync(MailScheme mailScheme)
+    public async Task<MailResult> SendAsync(MailScheme mailScheme)
     {
         var message = new MimeMessage();
         
@@ -46,12 +45,11 @@ public class SmtpDriver : IMailDriver<SmtpOptions>
                 _options.Tls ? SecureSocketOptions.StartTls : SecureSocketOptions.None);
             await smtpClient.AuthenticateAsync(_options.Username, _options.Password);
             await smtpClient.SendAsync(message);
-            return true;
+            return MailResult.Success();
         }
         catch (Exception ex)
         {
-            // TODO: create and return MailResult
-            return false;
+            return MailResult.Failure(ex.Message);
         }
     }
 }
